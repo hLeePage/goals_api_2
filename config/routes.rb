@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :goals, except: [:new, :edit]
   use_doorkeeper
 
+  resources :goals, except: [:new, :edit]
   resources :users, except: [:new, :edit]
 end
