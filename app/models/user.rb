@@ -14,4 +14,11 @@ class User < ActiveRecord::Base
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
+
+  def self.authenticate!(email, password)
+    user = User.find_by_email(email)
+    return false unless user
+    user.authenticate(password)
+  end
+
 end
