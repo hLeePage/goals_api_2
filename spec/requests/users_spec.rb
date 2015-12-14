@@ -18,7 +18,7 @@ RSpec.describe "Users" do
     it "returns an error when username is empty" do
       payload[:user][:username] = ""
       post users_path, payload
-      expect(response).to have_http_status(:unprocessable_entity)
+      expect(response).to have_http_status(422)
     end
   end
 
@@ -28,7 +28,7 @@ RSpec.describe "Users" do
       user2
       user3
       get users_path(format: :json)
-      expect(response).to have_http_status(:success)
+      expect(response).to have_http_status(200)
       expect(json.count).to eq 3
     end
   end
@@ -38,7 +38,7 @@ RSpec.describe "Users" do
     user1
     user2
     get user_path(user1)
-    expect(response).to have_http_status(:success)
+    expect(response).to have_http_status(200)
     expect(json["username"]).to eq user1.username
     expect(json["username"]).to_not eq user2.username
   end

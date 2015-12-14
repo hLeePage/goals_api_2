@@ -43,6 +43,19 @@ class GoalsController < ApplicationController
     end
 
     def goal_params
-      params.require(:goal).permit(:body, :upvote, :downvote, :user_id, :completed)
+      params.require(:goal).permit(:body, :upvotes, :downvotes, :user_id, :completed)
+
+
+
+      # {
+      #   goal: {
+      #     body: "",
+      #     upvote: "",
+      #     downvote: "",
+      #     user_id: "",
+      #     completed: ""
+      #   }
+      # }
+
     end
 end
