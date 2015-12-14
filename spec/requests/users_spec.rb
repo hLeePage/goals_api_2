@@ -34,14 +34,19 @@ RSpec.describe "Users" do
   end
 
   describe "#show" do
-  it "displays a single user" do
-    user1
-    user2
-    get user_path(user1)
-    expect(response).to have_http_status(200)
-    expect(json["username"]).to eq user1.username
-    expect(json["username"]).to_not eq user2.username
+    it "displays a single user" do
+      user1
+      user2
+      get user_path(user1)
+      expect(response).to have_http_status(200)
+      expect(json["username"]).to eq user1.username
+      expect(json["username"]).to_not eq user2.username
+    end
   end
-end
 
+  describe "#follow" do
+    it "allows a user to follow another user" do
+      
+    end
+  end
 end
