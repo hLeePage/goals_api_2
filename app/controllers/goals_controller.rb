@@ -16,6 +16,9 @@ class GoalsController < ApplicationController
   def create
     @goal = Goal.new(goal_params)
     @goal.user = current_user
+    @upvotes = 0
+    @downvotes = 0
+    @completed = false
 
     if @goal.save
       render json: @goal, status: :created, location: @goal
