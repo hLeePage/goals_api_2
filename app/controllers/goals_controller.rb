@@ -15,6 +15,7 @@ class GoalsController < ApplicationController
 
   def create
     @goal = Goal.new(goal_params)
+    @goal.user = current_user
 
     if @goal.save
       render json: @goal, status: :created, location: @goal
@@ -44,16 +45,15 @@ class GoalsController < ApplicationController
     end
 
     def goal_params
-      params.require(:goal).permit(:body, :upvotes, :downvotes, :user_id, :completed)
+      params.require(:goal).permit(:body, :upvotes, :downvotes, :completed)
 
 
 
       # {
       #   goal: {
       #     body: "",
-      #     upvote: "",
-      #     downvote: "",
-      #     user_id: "",
+      #     upvotes: "",
+      #     downvotes: "",
       #     completed: ""
       #   }
       # }
