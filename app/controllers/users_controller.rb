@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     if @user.save
       render json: @user, status: :created, location: @user
     else
-      render json: @user.errors, status: :unprocessable_entity
+      render json: @user.errors, status: 422
     end
   end
 
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       head :no_content
     else
-      render json: @user.errors, status: :unprocessable_entity
+      render json: @user.errors, status: 422
     end
   end
 
