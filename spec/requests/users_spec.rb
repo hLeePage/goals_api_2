@@ -6,6 +6,8 @@ RSpec.describe "Users" do
   let(:user1) { FactoryGirl.create :user }
   let(:user2) { FactoryGirl.create :user }
   let(:user3) { FactoryGirl.create :user }
+  let(:token) { FactoryGirl.create(:access_token, resource_owner_id: user.id) }
+
 
   describe "#create" do
     let(:payload) { { user: FactoryGirl.attributes_for(:user) } }
@@ -46,7 +48,7 @@ RSpec.describe "Users" do
 
   describe "#follow" do
     it "allows a user to follow another user" do
-      
+
     end
   end
 end

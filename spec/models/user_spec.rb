@@ -4,6 +4,7 @@ RSpec.describe "Users" do
 
   let(:user1) { FactoryGirl.create :user }
   let(:user2) { FactoryGirl.create :user }
+  let(:token) { FactoryGirl.create(:access_token, resource_owner_id: user.id) }
 
   describe "#follow, #unfollow, #following?" do
     it "enables users to follow/unfollow other users" do
