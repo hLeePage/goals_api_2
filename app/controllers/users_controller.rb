@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :update, :destroy]
+  before_action :set_user, except: [:index, :create]
 
   def index
     @users = User.all
@@ -37,6 +37,17 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     head :no_content
+  end
+
+
+  def following
+    @users = @user.following
+    render json: @users
+  end
+
+
+  def followers
+    @users = @user.followers
   end
 
   private
