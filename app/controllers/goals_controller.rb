@@ -1,7 +1,7 @@
 class GoalsController < ApplicationController
 
   before_action :set_goal, only: [:show, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index, :show]
 
 
   def index
