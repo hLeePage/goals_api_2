@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  #use_doorkeeper
+  use_doorkeeper
 
   resources :users,               except: [:new, :edit] do
     member do
