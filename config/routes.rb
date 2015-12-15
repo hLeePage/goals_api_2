@@ -7,5 +7,9 @@ Rails.application.routes.draw do
     end
   end
   resources :goals,               except: [:new, :edit]
-  resources :relationships,       only: [:create, :destroy]
+  # resources :relationships,       only: [:create, :destroy]
+
+  post "/follow/:user_id" => "relationships#follow", as: :follow
+  post "/unfollow/:user_id" => "relationships#unfollow", as: :unfollow
+
 end

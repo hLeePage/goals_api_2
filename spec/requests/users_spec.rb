@@ -6,8 +6,7 @@ RSpec.describe "Users" do
   let(:user1) { FactoryGirl.create :user }
   let(:user2) { FactoryGirl.create :user }
   let(:user3) { FactoryGirl.create :user }
-  let(:token) { FactoryGirl.create(:access_token, resource_owner_id: user.id) }
-
+  let(:token) { FactoryGirl.create(:access_token, resource_owner_id: user1.id) }
 
   describe "#create" do
     let(:payload) { { user: FactoryGirl.attributes_for(:user) } }
@@ -39,7 +38,7 @@ RSpec.describe "Users" do
     it "displays a single user" do
       user1
       user2
-      get user_path(user1)
+      get user_path(user1), {}, { "authorization" => "Bearer #{token.token}" }
       expect(response).to have_http_status(200)
       expect(json["username"]).to eq user1.username
       expect(json["username"]).to_not eq user2.username
@@ -47,8 +46,22 @@ RSpec.describe "Users" do
   end
 
   describe "#follow" do
-    it "allows a user to follow another user" do
+    it "enables a user to follow another user" do
+      user1
+      user2
 
+      get following_user_path(user1), {}, { "authorization" => "Bearer #{token.token}" }
+      expect(json.empty?).to be true  
+
+      post follow_path(user_id: user2.id), {}, { "authorization" => "Bearer #{token.token}" }
+      get following_user_path(user1), {}, { "authorization" => "Bearer #{token.token}" }
+
+      expect(json[0]["email"]).to eq user2.email
+
+      post unfollow_path(user_id: user2.id), {}, { "authorization" => "Bearer #{token.token}" }
+      get following_user_path(user1), {}, { "authorization" => "Bearer #{token.token}" }
+      expect(json.empty?).to be true
     end
   end
+
 end

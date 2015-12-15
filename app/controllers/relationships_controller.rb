@@ -2,17 +2,13 @@ class RelationshipsController < ApplicationController
 
   before_action :authenticate_user!
 
-  def create
-    user = User.find(params[:followed_id])
+  def follow
+    user = User.find(params[:user_id])
     current_user.follow(user)
-
-    # {
-    #   followed_id: 4567
-    # }
   end
 
-  def destroy
-    user = Relationship.find(params[:id])
+  def unfollow
+    user = User.find(params[:user_id])
     current_user.unfollow(user)
   end
 

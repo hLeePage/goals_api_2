@@ -13,7 +13,6 @@ gem 'pg'
 gem 'pry'
 gem 'puma'
 gem 'rack-cors', :require => 'rack/cors'
-gem 'rails_12factor'
 gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
@@ -28,4 +27,8 @@ group :development do
   gem 'foreman'
   gem 'spring'
   gem 'spring-commands-rspec', group: :development
+end
+
+group :production do
+  gem 'rails_12factor'
 end

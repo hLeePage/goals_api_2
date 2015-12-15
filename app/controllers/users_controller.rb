@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index, :create]
   before_action :set_user, except: [:index, :create]
 
   def index
@@ -42,6 +42,8 @@ class UsersController < ApplicationController
   end
 
 
+################################
+
   def following
     @users = @user.following
     render json: @users
@@ -50,8 +52,10 @@ class UsersController < ApplicationController
 
   def followers
     @users = @user.followers
+    render json: @users
   end
 
+################################
   private
 
     def set_user
