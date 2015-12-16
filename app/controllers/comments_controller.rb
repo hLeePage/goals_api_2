@@ -10,15 +10,10 @@ class CommentsController < ApplicationController
 
   def create
     comment = Comment.new(comment_params)
+    goal = Goal.find(params[:goal_id])
     comment.user = current_user
     comment.goal_id = goal.id
-
-
-
-              ##### How to associate comment to the goal? ######
-
-
-
+    
     if comment.save
       render json: comment, status: :created, location: comment
     else
