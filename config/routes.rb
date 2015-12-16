@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   end
   resources :goals,               except: [:new, :edit] do
     member do
-      put "/vote_up" => "goal#vote_up", as: :vote_up
-      put "/vote_down" => "goal#vote_down", as: :vote_down
+      put "/vote_up" => "goals#vote_up", as: :vote_up
+      put "/vote_down" => "goals#vote_down", as: :vote_down
     end
     resources :comments,           except: [:new, :edit]
   end

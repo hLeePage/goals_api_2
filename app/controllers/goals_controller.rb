@@ -1,6 +1,6 @@
 class GoalsController < ApplicationController
 
-  before_action :set_goal, only: [:show, :update, :destroy]
+  before_action :set_goal, only: [:show, :update, :destroy, :vote_up, :vote_down]
   before_action :authenticate_user!, except: [:index, :show]
 
 
@@ -39,13 +39,13 @@ class GoalsController < ApplicationController
     head :no_content
   end
 
-  # def vote_up
-  #   @goal.liked by current_user
-  # end
-  #
-  # def vote_down
-  #   @goal.downvote_from current_user
-  # end
+  def vote_up
+    @goal.upvote_by current_user
+  end
+
+  def vote_down
+    @goal.downvote_by current_user
+  end
 
   private
 
