@@ -2,14 +2,14 @@ To create a new User...
 
 Go to `https://goals-api.herokuapp.com/goals` and send the following as a `POST` request:
 
- ```{"user": 
+ `{"user": 
   { "first": "Fozzy",
     "last": "Bear",
     "username": "fozzy",
     "email": "fozzy@bear.com",
     "password": "password"
   }
-}```
+}`
 
 
 Next, we go to `https://goals-api.herokuapp.com/oauth/token` and send a `POST` request as so:  
