@@ -12,5 +12,6 @@ Rails.application.routes.draw do
 
   post "/follow/:user_id" => "relationships#follow", as: :follow
   post "/unfollow/:user_id" => "relationships#unfollow", as: :unfollow
+  get "/comments" => "comments#all_comments", as: :all_comments
 
 end

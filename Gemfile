@@ -6,6 +6,7 @@ gem 'rails-api'
 
 gem 'activerecord'
 gem 'active_model_serializers', '~> 0.10.0.rc3'
+gem 'acts_as_votable', '~> 0.10.0'
 gem 'bcrypt'
 gem 'doorkeeper'
 gem 'figaro'
