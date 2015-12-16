@@ -16,8 +16,6 @@ class GoalsController < ApplicationController
   def create
     @goal = Goal.new(goal_params)
     @goal.user = current_user
-    @goal.upvotes = 0
-    @goal.downvotes = 0
     @goal.completed = false
 
     if @goal.save
@@ -41,6 +39,14 @@ class GoalsController < ApplicationController
     head :no_content
   end
 
+  # def vote_up
+  #   @goal.liked by current_user
+  # end
+  #
+  # def vote_down
+  #   @goal.downvote_from current_user
+  # end
+
   private
 
     def set_goal
@@ -48,7 +54,7 @@ class GoalsController < ApplicationController
     end
 
     def goal_params
-      params.require(:goal).permit(:body, :upvotes, :downvotes, :completed)
+      params.require(:goal).permit(:body, :completed)
 
 
 
