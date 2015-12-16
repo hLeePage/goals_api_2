@@ -11,6 +11,7 @@ class CommentsController < ApplicationController
   def create
     comment = Comment.new(comment_params)
     comment.user = current_user
+    comment.goal_id = goal.id
 
 
 
@@ -34,7 +35,8 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-
+    comment.destroy
+    head :no_content
   end
 
 ####################
