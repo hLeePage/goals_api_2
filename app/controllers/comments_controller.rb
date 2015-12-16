@@ -3,8 +3,13 @@ class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :update, :destroy]
   before_action :authenticate_user!
 
-  def index
+  def all_comments
     comments = Comment.all
+    render json: comments
+  end
+
+  def index
+    comments = Comment.where(goal_id: params[:goal_id])
     render json: comments
   end
 
@@ -13,9 +18,9 @@ class CommentsController < ApplicationController
     goal = Goal.find(params[:goal_id])
     comment.user = current_user
     comment.goal_id = goal.id
-    
+
     if comment.save
-      render json: comment, status: :created, location: comment
+      render json: comment, status: :created
     else
       render json: comment.errors, status: 422
     end
@@ -30,6 +35,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    comment = Comment.find(params[:id])
     comment.destroy
     head :no_content
   end
