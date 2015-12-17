@@ -5,6 +5,10 @@ Rails.application.routes.draw do
     member do
       get :following, :followers
     end
+
+    member do
+      get :goals
+    end
   end
   resources :goals,               except: [:new, :edit] do
     member do
