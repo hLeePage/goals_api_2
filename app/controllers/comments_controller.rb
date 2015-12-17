@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
 
   before_action :set_comment, only: [:show, :update, :destroy]
-  before_action :authenticate_user!
+  #before_action :authenticate_user!, except: :all_comments
 
   def all_comments
     comments = Comment.all
