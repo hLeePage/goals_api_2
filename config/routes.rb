@@ -10,12 +10,14 @@ Rails.application.routes.draw do
       get :goals
     end
   end
+
   resources :goals,               except: [:new, :edit] do
+    resources :comments,           except: [:new, :edit]
+
     member do
       put "/vote_up" => "goals#vote_up", as: :vote_up
       put "/vote_down" => "goals#vote_down", as: :vote_down
     end
-    resources :comments,           except: [:new, :edit]
   end
 
   post "/follow/:user_id" => "relationships#follow", as: :follow
