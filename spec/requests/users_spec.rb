@@ -1,5 +1,6 @@
 require 'rails_helper'
 require 'request_helper'
+require 'pry'
 
 RSpec.describe "Users" do
 
@@ -18,6 +19,18 @@ RSpec.describe "Users" do
 
     it "returns an error when username is empty" do
       payload[:user][:username] = ""
+      post users_path, payload
+      expect(response).to have_http_status(422)
+    end
+
+    it "returns an error when email is empty" do
+      payload[:user][:email] = ""
+      post users_path, payload
+      expect(response).to have_http_status(422)
+    end
+
+    it "returns an error when password is empty" do
+      payload[:user][:password] = ""
       post users_path, payload
       expect(response).to have_http_status(422)
     end
@@ -45,13 +58,13 @@ RSpec.describe "Users" do
     end
   end
 
-  describe "#follow" do
-    it "enables a user to follow another user" do
+  describe "#follow/#unfollow" do
+    it "enables a user to follow/unfollow another user" do
       user1
       user2
 
       get following_user_path(user1), {}, { "authorization" => "Bearer #{token.token}" }
-      expect(json.empty?).to be true  
+      expect(json.empty?).to be true
 
       post follow_path(user_id: user2.id), {}, { "authorization" => "Bearer #{token.token}" }
       get following_user_path(user1), {}, { "authorization" => "Bearer #{token.token}" }
@@ -63,5 +76,31 @@ RSpec.describe "Users" do
       expect(json.empty?).to be true
     end
   end
+
+  describe "#update" do
+    let(:payload) { { user: FactoryGirl.attributes_for(:user) } }
+    it "enables a user to update his/her own profile" do
+      user1
+      user2
+      payload[:user][:username] = "helmutthesmall"
+
+      put user_path(user1), payload, { "authorization" => "Bearer #{token.token}" }
+      get user_path(user1), {}, { "authorization" => "Bearer #{token.token}" }
+      expect(json["username"]).to eq "helmutthesmall"
+      expect(json["id"]).to eq user1.id
+    end
+
+    it "does not allow a user to update another user's profile" do
+      user1
+      user2
+
+      payload[:user][:username] = "helmutthesmall"
+
+      put user_path(user2), payload, { "authorization" => "Bearer #{token.token}" }
+      expect(response).to have_http_status(422)
+    end
+  end
+
+
 
 end

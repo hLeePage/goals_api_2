@@ -38,6 +38,8 @@ class UsersController < ApplicationController
     if @user == current_user
       @user.destroy
       head :no_content
+    else
+      render json: @user.errors, status: 422
     end
   end
 
