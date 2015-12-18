@@ -37,8 +37,10 @@ class UsersController < ApplicationController
 
 
   def destroy
-    @user.destroy
-    head :no_content
+    if @user == current_user
+      @user.destroy
+      head :no_content
+    end
   end
 
 

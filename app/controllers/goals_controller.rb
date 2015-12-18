@@ -26,8 +26,7 @@ class GoalsController < ApplicationController
   end
 
   def update
-    @goal = Goal.find(params[:id])
-    if @goal.update(goal_params)
+    if @goal.update(goal_params) &&  @goal.user == current_user
       head :no_content
     else
       render json: @goal.errors, status: 422
@@ -35,8 +34,12 @@ class GoalsController < ApplicationController
   end
 
   def destroy
-    @goal.destroy
-    head :no_content
+    if @goal.user == current_user
+      @goal.destroy
+      head :no_content
+    else
+      render json: @goal.errors, status: 401
+    end
   end
 
   def vote_up

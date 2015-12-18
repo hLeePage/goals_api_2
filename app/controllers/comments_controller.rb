@@ -31,13 +31,18 @@ class CommentsController < ApplicationController
   end
 
   def update
-
+    if comment.update(comment_params) && comment.user == current_user
+      head :no_content
+    else
+      render json: comment.errors, status: 422
   end
 
   def destroy
-    comment = Comment.find(params[:id])
-    comment.destroy
-    head :no_content
+    if comment.user == current_user
+      comment = Comment.find(params[:id])
+      comment.destroy
+      head :no_content
+    end
   end
 
 ####################
