@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   #before_action :authenticate_user!, except: [:index, :create]
-  before_action :set_user, except: [:index, :create]
+  before_action :set_user, except: [:index, :create, :me, :my_goals]
 
   def index
     @users = User.all
@@ -56,6 +56,17 @@ class UsersController < ApplicationController
   end
 
   def goals
+    @goals = @user.goals
+    render json: @goals
+  end
+
+  def me
+    @user = current_user
+    render json: @user
+  end
+
+  def my_goals
+    @user = current_user
     @goals = @user.goals
     render json: @goals
   end
