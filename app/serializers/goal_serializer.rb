@@ -1,5 +1,5 @@
 class GoalSerializer < ActiveModel::Serializer
-  attributes :body, :id, :username, :user_id, :upvotes, :downvotes, :completed, :comments
+  attributes :body, :id, :username, :user_id, :created_at, :upvotes, :downvotes, :completed, :comments
 
   has_many :comments
 
