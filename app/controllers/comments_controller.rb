@@ -35,6 +35,7 @@ class CommentsController < ApplicationController
       head :no_content
     else
       render json: comment.errors, status: 422
+    end
   end
 
   def destroy
