@@ -48,6 +48,9 @@ To retrieve Rick's profile information, as well as an array of followers and an 
 To retrieve an array of Rick's goals:
 `GET`    `/users/<Rick's id>/goals`
 
+To retrieve an array of all comments:
+`GET`    `/comments`
+
 To retrieve an array of comments for the goal with id 7:
 `GET`    `/goals/7/comments`
 
@@ -85,17 +88,30 @@ To upvote the goal with id 6:
 To downvote the goal with id 4231:
 `PUT`    `/goals/4231/vote_down`
 
-
-
 To post a new goal:
 `POST`   `/goals`
+```
+{
+ 'goal':
+  {
+   'body': 'I will sell this house today.'
+  }
+}
+```
 
 To retrieve the goal with id 7:
 `GET`    `/goals/7`
 
 To update one's own goal that has id 256:
 `PUT`    `/goals/256`
-
+```
+{
+ 'goal':
+  {
+   'body': 'I will sell this house tomorrow.'
+  }
+}
+```
 To delete one's own goal that has id 11:
 `DELETE`  `/goals/11`
 
@@ -111,7 +127,6 @@ To follow Shakira:
 To cease following Shakira:
 `POST`   `/unfollow/<Shakira's id>`
 
-To retrieve an array of all comments:
-`GET`    `/comments`
+
 
 
