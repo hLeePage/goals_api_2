@@ -1,6 +1,7 @@
 Instructions below will be in the following form:
 
-`Request Type`  `Endpoint Address`  `Example Payload`
+`Request Type`  `Endpoint Address`  
+`Example Payload`
 
 
 To create a new user account:
