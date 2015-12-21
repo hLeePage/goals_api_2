@@ -42,30 +42,39 @@ To retrieve an array of all users, as well as an array of followers and an array
 To retrieve an array of all goals:
 `GET`    `/goals`
 
-
 To retrieve Rick's profile information, as well as an array of followers and an array of followings:
 `GET`    `/users/<Rick's id>`
 
 To retrieve an array of Rick's goals:
 `GET`    `/users/<Rick's id>/goals`
 
-
-
-
-
-
-
 To retrieve an array of comments for the goal with id 7:
 `GET`    `/goals/7/comments`
 
 To post a comment to the goal with id 36:
 `POST`   `/goals/36/comments`
+```
+{
+ 'comment':
+   {
+    'body': 'You are superbad!'
+   }
+}
+```
 
 To retrieve the comment with id 89 that was posted to the goal with id 46:
 `GET`    `/goals/46/comments/89`
 
 To update one's own comment with id 24 that was posted to the goal with id 8:
-`PUT`    `/goals/:goal_id/comments/:id`   
+`PUT`    `/goals/:goal_id/comments/:id`  
+```
+{ 
+ 'comment':
+   {
+    'body': 'I shouldn't have said that. This is what I meant to say'
+   }
+}
+```
 
 To delete one's own comment with id 56 that was posted to goal 93:
 `DELETE`   `/goals/:93/comments/56`
