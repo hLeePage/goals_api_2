@@ -1,9 +1,11 @@
 
 
-
+<tr>
+<td>
 To create a new user account:
 POST   /users
-
+</tr>
+</td>
 To sign in to an existing account:
 POST   /oauth/token
 
