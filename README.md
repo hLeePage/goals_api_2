@@ -6,15 +6,17 @@ Instructions below will be in the following form:
 To create a new user account:
 
 `POST`   `/users`  
-```{'user':
-                       {
-                        'first': 'Mark',
-                        'last': 'Hamill',
-                        'username': 'Luke',
-                        'email': 'luke@force.com',
-                        'password': 'lightsaber'
-                         }
-                       }```
+```
+{'user':
+        {
+         'first': 'Mark',
+          'last': 'Hamill',
+          'username': 'Luke',
+          'email': 'luke@force.com',
+          'password': 'lightsaber'
+        }
+}
+  ```
 
 To sign in to an existing account:
 POST   /oauth/token
