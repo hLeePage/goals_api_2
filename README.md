@@ -7,7 +7,8 @@ To create a new user account:
 
 `POST`   `/users`  
 ```
-{'user':
+{
+ 'user':
         {
          'first': 'Mark',
           'last': 'Hamill',
