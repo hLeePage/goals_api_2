@@ -5,7 +5,8 @@ Instructions below will be in the following form:
 
 To create a new user account:
 
-`POST`   `/users`  ```{'user':
+`POST`   `/users`  
+```{'user':
                        {
                         'first': 'Mark',
                         'last': 'Hamill',
