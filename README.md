@@ -130,4 +130,3 @@ To cease following Shakira:
 
 
 
-
