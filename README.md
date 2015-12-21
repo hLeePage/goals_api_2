@@ -21,7 +21,14 @@ To create a new user account:
   ```
 
 To sign in to an existing account:
-POST   /oauth/token
+`POST`   `/oauth/token`
+```
+{
+ 'grant_type': 'password',
+ 'username': 'luke@force.com',
+ 'password': 'lightsaber'
+}
+```
 
 To sign out the signed-in user:
 POST   /oauth/revoke
