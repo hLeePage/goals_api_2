@@ -30,17 +30,19 @@ To sign in to an existing account:
 }
 ```
 
-To sign out the signed-in user:
-POST   /oauth/revoke
+To retrieve the signed-in user's profile information, as well as an array of followers and an array of followings:
+`GET`    `/me`
 
-To do i'm not sure what yet:
-GET    /oauth/token/info
+To retrieve an array of the signed-in user's goals, along with an array of comments for each goal:
+`GET`    `/my_goals`
+
+To retrieve an array of all users, as well as an array of followers and an array of followings:
+`GET`    `/users`
 
 To retrieve an array of Rick's goals:
-GET    /users/<Rick's id>/goals
+`GET`    `/users/<Rick's id>/goals`
 
-To retrieve an array of all users:
-GET    /users
+
 
 To retrieve Rick's profile information, as well as an array of followers and an array of followings:
 GET    /users/<Rick's id>
@@ -105,8 +107,4 @@ POST   /unfollow/<Shakira's id>
 To retrieve an array of all comments:
 GET    /comments
 
-To retrieve the signed-in user's profile information, as well as an array of followers and an array of followings:
-GET    /me
 
-To retrieve an array of the signed-in user's goals, along with an array of comments for each goal:
-GET    /my_goals
