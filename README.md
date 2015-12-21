@@ -1,4 +1,6 @@
+Instructions below will be in the following form:
 
+`Request Type`  `Endpoint Address`  `Example Payload`
 
 <tr>
 <td>
