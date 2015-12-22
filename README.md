@@ -10,13 +10,13 @@ To create a new user account:
 `POST`   `/users`
 ```
 {
- 'user':
+ "user":
         {
-         'first': 'Mark',
-          'last': 'Hamill',
-          'username': 'Luke',
-          'email': 'luke@force.com',
-          'password': 'lightsaber'
+         "first": "Mark",
+          "last": "Hamill",
+          "username": "Luke",
+          "email": "luke@force.com",
+          "password": "lightsaber"
         }
 }
   ```
@@ -25,9 +25,9 @@ To sign in to an existing account:
 `POST`   `/oauth/token`
 ```
 {
- 'grant_type': 'password',
- 'username': 'luke@force.com',
- 'password': 'lightsaber'
+ "grant_type": "password",
+ "username": "luke@force.com",
+ "password": "lightsaber"
 }
 ```
 
@@ -43,10 +43,10 @@ To retrieve an array of all users, as well as an array of followers and an array
 To retrieve an array of all goals:
 `GET`    `/goals`
 
-To retrieve Rick's profile information, as well as an array of followers and an array of followings:
+To retrieve Rick"s profile information, as well as an array of followers and an array of followings:
 `GET`    `/users/<Rick's id>`
 
-To retrieve an array of Rick's goals:
+To retrieve an array of Rick"s goals:
 `GET`    `/users/<Rick's id>/goals`
 
 
@@ -60,9 +60,9 @@ To post a new goal:
 `POST`   `/goals`
 ```
 {
- 'goal':
+ "goal":
   {
-   'body': 'I will sell this house today.'
+   "body": "I will sell this house today."
   }
 }
 ```
@@ -74,9 +74,9 @@ To update one's own goal that has id 256:
 `PUT`    `/goals/256`
 ```
 {
- 'goal':
+ "goal":
   {
-   'body': 'I will sell this house tomorrow.'
+   "body": "I will sell this house tomorrow."
   }
 }
 ```
@@ -93,9 +93,9 @@ To post a comment to the goal with id 36:
 `POST`   `/goals/36/comments`
 ```
 {
- 'comment':
+ "comment":
    {
-    'body': 'You are superbad!'
+    "body": "You are superbad!"
    }
 }
 ```
@@ -104,12 +104,12 @@ To retrieve the comment with id 89 that was posted to the goal with id 46:
 `GET`    `/goals/46/comments/89`
 
 To update one's own comment with id 24 that was posted to the goal with id 8:
-`PUT`    `/goals/:goal_id/comments/:id`
+`PUT`    `/goals/8/comments/24`
 ```
 {
- 'comment':
+ "comment":
    {
-    'body': 'I shouldn't have said that. This is what I meant to say'
+    "body": "I shouldn't have said that. This is what I meant to say"
    }
 }
 ```
@@ -118,13 +118,13 @@ To delete one's own comment with id 56 that was posted to goal 93:
 `DELETE`   `/goals/:93/comments/56`
 
 To retrieve an array of users whom Rick is following:
-`GET`    `/users/<Rick's id>/following`
+`GET`    `/users/<Rick"s id>/following`
 
 To retrieve an array of users who are following Rick:
-`GET`    `/users/<Rick's:id>/followers`
+`GET`    `/users/<Rick"s:id>/followers`
 
 To follow Shakira:
-`POST`   `/follow/<Shakira's id>`
+`POST`   `/follow/<Shakira"s id>`
 
 To cease following Shakira:
-`POST`   `/unfollow/<Shakira's id>`
+`POST`   `/unfollow/<Shakira"s id>`
