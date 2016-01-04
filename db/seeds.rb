@@ -6,20 +6,62 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create(first: 'Kermit',
-            last: 'Frog',
-            username: 'Kermit',
-            email: 'kermit@frog.com',
+User.create(first: 'Michael',
+            last: 'Hearst',
+            username: 'michael',
+            email: 'michael@hearst.com',
             password: 'password')
 
-User.create(first: 'Miss',
-            last: 'Piggy',
-            username: 'Miss',
-            email: 'miss@piggy.com',
+User.create(first: 'Rachel',
+            last: 'Sanders',
+            username: 'Rachel',
+            email: 'rachel@sanders.com',
             password: 'password')
 
-User.create(first: "Fozzy",
-            last: "Bear",
-            username: "Fozzy",
-            email: "fozzy@bear.com",
+User.create(first: "Charles",
+            last: "Ridgemore",
+            username: "charles",
+            email: "charles@ridgemore.com",
+            password: 'password')
+
+User.create(first: 'John',
+            last: 'Malkin',
+            username: 'john',
+            email: 'john@malkin.com',
+            password: 'password')
+
+User.create(first: 'Jessica',
+            last: 'Lyle',
+            username: 'jessica',
+            email: 'jessica@lyle.com',
+            password: 'password')
+
+User.create(first: "Mark",
+            last: "Pickle",
+            username: "mark",
+            email: "mark@pickle.com",
+            password: 'password')
+
+User.create(first: "Jason",
+            last: "Ensminger",
+            username: "jason",
+            email: "jason@ensminger.com",
+            password: 'password')
+
+User.create(first: 'Kristin',
+            last: 'Meyerson',
+            username: 'Kristin',
+            email: 'kristin@meyerson.com',
+            password: 'password')
+
+User.create(first: 'Francis',
+            last: 'Bunt',
+            username: 'francis',
+            email: 'francis@bunt.com',
+            password: 'password')
+
+User.create(first: "Collin",
+            last: "James",
+            username: "collin",
+            email: "collin@james.com",
             password: 'password')
