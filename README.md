@@ -230,11 +230,36 @@ To retrieve an array of all goals:
 ]
 ```
 
-To retrieve Rick"s profile information, as well as an array of followers and an array of followings:
-`GET`    `/users/<Rick's id>`
-
-To retrieve an array of Rick"s goals:
-`GET`    `/users/<Rick's id>/goals`
+To retrieve Fozzy's profile information, as well as an array of followers and an array of followings:
+`GET`    `/users/<Fozzy's id>`
+```
+{
+  "username": "fozzy",
+  "id": 3,
+  "first": "Fozzy",
+  "last": "Bear",
+  "email": "fozzy@bear.com",
+  "following": [],
+  "followers": [
+    {
+      "username": "kermit",
+      "id": 1,
+      "first": "Kermit",
+      "last": "Frog",
+      "email": "kermit@frog.com"
+    },
+    {
+      "username": "miss",
+      "id": 2,
+      "first": "Miss",
+      "last": "Piggy",
+      "email": "miss@piggy.com"
+    }
+  ]
+}
+```
+To retrieve an array of Fozzy's goals:
+`GET`    `/users/<Fozzy's id>/goals`
 
 
 To upvote the goal with id 6:
