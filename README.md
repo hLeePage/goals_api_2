@@ -105,7 +105,8 @@ To retrieve an array of all users, as well as an array of followers and an array
       }
     ]
   }
-]```
+]
+```
 
 To retrieve an array of all goals:
 `GET`    `/goals`
