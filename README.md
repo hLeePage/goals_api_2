@@ -33,6 +33,40 @@ To sign in to an existing account:
 
 To retrieve the signed-in user's profile information, as well as an array of followers and an array of followings:
 `GET`    `/me`
+```
+{
+  "username": "kermit",
+  "id": 1,
+  "first": "Kermit",
+  "last": "Frog",
+  "email": "kermit@frog.com",
+  "following": [
+    {
+      "username": "miss",
+      "id": 2,
+      "first": "Miss",
+      "last": "Piggy",
+      "email": "miss@piggy.com"
+    },
+    {
+      "username": "fozzy",
+      "id": 3,
+      "first": "Fozzy",
+      "last": "Bear",
+      "email": "fozzy@bear.com"
+    }
+  ],
+  "followers": [
+    {
+      "username": "miss",
+      "id": 2,
+      "first": "Miss",
+      "last": "Piggy",
+      "email": "miss@piggy.com"
+    }
+  ]
+}
+```
 
 To retrieve an array of the signed-in user's goals, along with an array of comments for each goal:
 `GET`    `/my_goals`
