@@ -40,6 +40,73 @@ To retrieve an array of the signed-in user's goals, along with an array of comme
 To retrieve an array of all users, as well as an array of followers and an array of followings:
 `GET`    `/users`
 
+```[
+  {
+    username: "kermit",
+    id: 1,
+    first: "Kermit",
+    last: "Frog",
+    email: "kermit@frog.com",
+    following: [
+      {
+        username: "miss",
+        id: 2,
+        first: "Miss",
+        last: "Piggy",
+        email: "miss@piggy.com"
+      },
+      {
+        username: "fozzy",
+        id: 3,
+        first: "Fozzy",
+        last: "Bear",
+        email: "fozzy@bear.com"
+      }
+    ],
+    followers: [
+      {
+        username: "miss",
+        id: 2,
+        first: "Miss",
+        last: "Piggy",
+        email: "miss@piggy.com"
+      }
+    ]
+  },
+  {
+    username: "miss",
+    id: 2,
+    first: "Miss",
+    last: "Piggy",
+    email: "miss@piggy.com",
+    following: [
+      {
+        username: "kermit",
+        id: 1,
+        first: "Kermit",
+        last: "Frog",
+        email: "kermit@frog.com"
+      },
+      {
+        username: "fozzy",
+        id: 3,
+        first: "Fozzy",
+        last: "Bear",
+        email: "fozzy@bear.com"
+      }
+    ],
+    followers: [
+      {
+        username: "kermit",
+        id: 1,
+        first: "Kermit",
+        last: "Frog",
+        email: "kermit@frog.com"
+      }
+    ]
+  }
+]```
+
 To retrieve an array of all goals:
 `GET`    `/goals`
 
