@@ -260,7 +260,21 @@ To retrieve Fozzy's profile information, as well as an array of followers and an
 ```
 To retrieve an array of Fozzy's goals:
 `GET`    `/users/<Fozzy's id>/goals`
-
+```
+[
+  {
+    "body": "Get present for Gonzo",
+    "id": 6,
+    "username": "fozzy",
+    "user_id": 3,
+    "created_at": "2016-01-04T22:29:43.143Z",
+    "upvotes": 0,
+    "downvotes": 0,
+    "completed": false,
+    "comments": []
+  }
+]
+```
 
 To upvote the goal with id 6:
 `PUT`    `/goals/6/vote_up`
