@@ -70,7 +70,38 @@ To retrieve the signed-in user's profile information, as well as an array of fol
 
 To retrieve an array of the signed-in user's goals, along with an array of comments for each goal:
 `GET`    `/my_goals`
-
+```
+[
+  {
+    "body": "I will sell this house today!",
+    "id": 2,
+    "username": "kermit",
+    "user_id": 1,
+    "created_at": "2015-12-18T19:30:07.248Z",
+    "upvotes": 0,
+    "downvotes": 0,
+    "completed": false,
+    "comments": [
+      {
+        "body": "I believe in you!",
+        "id": 1,
+        "username": "miss",
+        "user_id": 2,
+        "goal_id": 2,
+        "created_at": "2015-12-18T19:43:33.078Z"
+      },
+      {
+        "body": "I'll see you at 4:00p.",
+        "id": 2,
+        "username": "fozzy",
+        "user_id": 3,
+        "goal_id": 2,
+        "created_at": "2015-12-18T19:50:50.730Z"
+      }
+    ]
+  }
+]
+```
 To retrieve an array of all users, as well as an array of followers and an array of followings:
 `GET`    `/users`
 
@@ -144,6 +175,60 @@ To retrieve an array of all users, as well as an array of followers and an array
 
 To retrieve an array of all goals:
 `GET`    `/goals`
+```
+[
+  {
+    "body": "I will sell this house today!",
+    "id": 2,
+    "username": "kermit",
+    "user_id": 1,
+    "created_at": "2015-12-18T19:30:07.248Z",
+    "upvotes": 0,
+    "downvotes": 0,
+    "completed": false,
+    "comments": [
+      {
+        "body": "I believe in you!",
+        "id": 1,
+        "username": "miss",
+        "user_id": 2,
+        "goal_id": 2,
+        "created_at": "2015-12-18T19:43:33.078Z"
+      },
+      {
+        "body": "I'll see you at 4:00p.",
+        "id": 2,
+        "username": "fozzy",
+        "user_id": 3,
+        "goal_id": 2,
+        "created_at": "2015-12-18T19:50:50.730Z"
+      }
+    ]
+  },
+  {
+    "body": "Find Waldo.",
+    "id": 4,
+    "username": "miss",
+    "user_id": 2,
+    "created_at": "2015-12-18T19:33:50.561Z",
+    "upvotes": 0,
+    "downvotes": 0,
+    "completed": false,
+    "comments": []
+  },
+  {
+    "body": "Take a 25 minute stroll.",
+    "id": 5,
+    "username": "miss",
+    "user_id": 2,
+    "created_at": "2015-12-18T19:46:09.173Z",
+    "upvotes": 0,
+    "downvotes": 0,
+    "completed": false,
+    "comments": []
+  }
+]
+```
 
 To retrieve Rick"s profile information, as well as an array of followers and an array of followings:
 `GET`    `/users/<Rick's id>`
@@ -187,7 +272,26 @@ To delete one's own goal that has id 11:
 
 To retrieve an array of all comments:
 `GET`    `/comments`
-
+```
+[
+  {
+    "body": "I believe in you!",
+    "id": 1,
+    "username": "miss",
+    "user_id": 2,
+    "goal_id": 2,
+    "created_at": "2015-12-18T19:43:33.078Z"
+  },
+  {
+    "body": "I'll see you at 4:00p.",
+    "id": 2,
+    "username": "fozzy",
+    "user_id": 3,
+    "goal_id": 2,
+    "created_at": "2015-12-18T19:50:50.730Z"
+  }
+]
+```
 To retrieve an array of comments for the goal with id 7:
 `GET`    `/goals/7/comments`
 
