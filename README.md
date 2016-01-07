@@ -293,6 +293,16 @@ To post a new goal:
 }
 ```
 
+To mark a goal as completed:
+`PUT` `/goals/<id>`
+```
+{
+  "goal":
+  {
+    "completed": true}
+}
+```
+
 To retrieve the goal with id 7:
 `GET`    `/goals/7`
 
