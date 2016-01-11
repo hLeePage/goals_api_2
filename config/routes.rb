@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   use_doorkeeper
 
+  root "/users#index"
+  
   resources :users,               except: [:new, :edit] do
     member do
       get :following, :followers

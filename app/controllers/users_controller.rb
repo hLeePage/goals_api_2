@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, except: [:index, :create]
   before_action :set_user, except: [:index, :create, :me, :my_goals]
 
+
   def index
     @users = User.all
     render json: @users
