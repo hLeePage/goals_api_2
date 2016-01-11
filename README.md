@@ -1,3 +1,6 @@
+This is the API for a project called "Goals".
+Goals is a social media app for small group sharing of short term goals.
+The API can be found at the following url: https://goals-api.herokuapp.com
 Instructions below will be in the following form:
 
 `Request Type`  `Endpoint Address`
